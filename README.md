@@ -35,7 +35,7 @@ $ docker-compose up -d --build
 ## Hellow World を表示する
 
 ```bash
-# helloという名前でコントローラを生成
+# Docker上でhelloという名前でコントローラを生成
 docker-compose run --rm web rails generate controller hello
 ```
 
