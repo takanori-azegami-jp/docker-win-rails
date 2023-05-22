@@ -1,7 +1,3 @@
-# docker-win-rails
-
-Ruby on Rails container in Windows .
-
 ## 環境
 
 - Windows10 Pro 22H2
@@ -18,11 +14,24 @@ $ touch {Dockerfile,docker-compose.yml,Gemfile,Gemfile.lock,entrypoint.sh}
 ## ビルド
 
 ```bash
-# Dockerビルド
-$  docker-compose up -d --build
+# Dockerイメージ作成
+$ docker-compose build
+# Railsアプリの雛形作成
+$ docker-compose run --rm web rails new . --force --database=mysql
+# database.yml書き換え
+.\config\database.yml
+# キャッシュ削除
+docker-compose build --no-cache
+# Docker 上でデータベース作成
+docker-compose run --rm web rails db:create
+# Dockerコンテナ作成
+$ docker-compose up -d --build
 ```
+
+## ブラウザで接続
+
+- http://localhost:3000/
 
 ## 参考
 
 - [Rails 7 × Dev Container での環境構築](https://zenn.dev/yama525/articles/5c46c9ed8eb927)
-- []()
