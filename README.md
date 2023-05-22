@@ -32,6 +32,14 @@ $ docker-compose up -d --build
 
 - http://localhost:3000/
 
+## Hellow World を表示する
+
+```bash
+# helloという名前でコントローラを生成
+docker-compose run --rm web rails generate controller hello
+```
+
 ## 参考
 
 - [Rails 7 × Dev Container での環境構築](https://zenn.dev/yama525/articles/5c46c9ed8eb927)
+- [Ruby on Rails で”Hello World”を作成する](https://medium-company.com/ruby-on-rails-hello-world/)
