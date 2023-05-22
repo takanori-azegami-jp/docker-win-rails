@@ -1,7 +1,9 @@
 version: '3.8'
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     # Docker の Web 立ち上げ時に毎回実行するコマンド
     command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
